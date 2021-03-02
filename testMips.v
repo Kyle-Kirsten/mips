@@ -27,24 +27,28 @@ module testMips;
 	// Inputs
 	reg clk;
 	reg reset;
-
+	reg interrupt;
+	wire [31:0] addr;
 	// Instantiate the Unit Under Test (UUT)
 	mips uut (
 		.clk(clk), 
-		.reset(reset)
+		.reset(reset),
+		.interrupt(interrupt),
+		.addr(addr)
 	);
 
 	initial begin
 		// Initialize Inputs
 		clk = 0;
 		reset = 1;
-
+		interrupt = 0;
 		// Wait 100 ns for global reset to finish
 		#10;
         
 		// Add stimulus here
 		reset = 0;
-		
+		#10;
+		// interrupt = 1;
 
 	end
     always #5 clk = ~clk;
