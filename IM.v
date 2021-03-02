@@ -29,7 +29,8 @@ wire [31:0] index = A-'h0000_3000;
 assign D = ROM[index[13:2]];
 
 initial begin
-	$readmemh("testFib.txt", ROM);
+	$readmemh("code.txt", ROM);
+	$readmemh("code_handler.txt", ROM, 1120, 2047);
 end
 
 
